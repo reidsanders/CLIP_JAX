@@ -104,6 +104,10 @@ def convert_params(torch_state, jax_params):
         new_tensor = value
 
         pytorch_name = tensor_path + "." + tensor_name if tensor_path else tensor_name
+        ### TMP remove after
+        if pytorch_name == 'visual':
+            print(f"convert_params: pytorch_name: {pytorch_name} \n torch_state: {torch_state.keys()}")
+        ### TMP remove
 
         if "conv" in name:
             pytorch_path = tensor_path + "." + tensor_name
